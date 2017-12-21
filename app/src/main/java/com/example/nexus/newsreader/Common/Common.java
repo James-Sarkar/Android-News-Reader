@@ -1,6 +1,8 @@
 package com.example.nexus.newsreader.Common;
 
+import com.example.nexus.newsreader.Interface.IconBetterIdeaService;
 import com.example.nexus.newsreader.Interface.NewsService;
+import com.example.nexus.newsreader.Remote.IconBetterIdeaClient;
 import com.example.nexus.newsreader.Remote.RetrofitClient;
 
 /**
@@ -15,5 +17,9 @@ public class Common {
 
     public static NewsService getNewsService() {
         return RetrofitClient.getClient(BASE_URL).create(NewsService.class);
+    }
+
+    public static IconBetterIdeaService getIconService() {
+        return IconBetterIdeaClient.getClient().create(IconBetterIdeaService.class);
     }
 }

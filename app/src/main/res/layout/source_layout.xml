@@ -28,7 +28,7 @@
             android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
-        
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
