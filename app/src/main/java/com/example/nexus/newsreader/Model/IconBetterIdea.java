@@ -12,10 +12,19 @@ public class IconBetterIdea {
 
     private List<Icon> icons;
 
-    private int width, height, bytes;
+    public String getUrl() {
+        return url;
+    }
 
-    private String format, shalsum;
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-    private Object error;
+    public List<Icon> getIcons() {
+        return icons;
+    }
 
+    public void setIcons(List<Icon> icons) {
+        this.icons = icons;
+    }
 }
