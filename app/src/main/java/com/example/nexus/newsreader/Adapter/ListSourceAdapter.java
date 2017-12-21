@@ -1,6 +1,7 @@
 package com.example.nexus.newsreader.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.example.nexus.newsreader.Common.Common;
 import com.example.nexus.newsreader.Interface.IconBetterIdeaService;
 import com.example.nexus.newsreader.Interface.ItemClickListener;
+import com.example.nexus.newsreader.ListNews;
 import com.example.nexus.newsreader.Model.IconBetterIdea;
 import com.example.nexus.newsreader.Model.Website;
 import com.example.nexus.newsreader.R;
@@ -25,7 +27,7 @@ import retrofit2.Response;
  */
 
 class ListSourceViewHolder extends RecyclerView.ViewHolder
-implements View.OnClickListener {
+        implements View.OnClickListener {
 
     ItemClickListener itemClickListener;
 
@@ -38,6 +40,8 @@ implements View.OnClickListener {
 
         sourceImage = (CircleImageView) itemView.findViewById(R.id.source_image);
         sourceTitle = (TextView) itemView.findViewById(R.id.source_name);
+
+        itemView.setOnClickListener(this);
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -101,7 +105,10 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
-
+                Intent intent = new Intent(context, ListNews.class);
+                intent.putExtra("source", website.getSources().get(position).getId());
+                intent.putExtra("sortBy", website.getSources().get(position).getSortByAvailable().get(0));
+                context.startActivity(intent);
             }
         });
     }
