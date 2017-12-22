@@ -94,7 +94,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         try {
             String dateInISO8601 = articleList.get(position).getPublishedAt();
             date = ISO8601DateParser.parse(dateInISO8601);
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 
