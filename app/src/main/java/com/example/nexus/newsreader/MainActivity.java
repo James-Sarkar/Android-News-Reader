@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Dismiss refresh progress
                     swipeRefreshLayout.setRefreshing(false);
+                    dialog.dismiss();
 
                 }
 

@@ -1,6 +1,7 @@
 package com.example.nexus.newsreader.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.CellIdentityCdma;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.example.nexus.newsreader.Common.ISO8601DateParser;
 import com.example.nexus.newsreader.Interface.ItemClickListener;
 import com.example.nexus.newsreader.Model.Article;
+import com.example.nexus.newsreader.NewsArticleDetails;
 import com.example.nexus.newsreader.R;
 import com.github.curioustechizen.ago.RelativeTimeTextView;
 import com.squareup.picasso.Picasso;
@@ -90,8 +92,9 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         Date date = null;
 
         try {
-            date = ISO8601DateParser.parse(articleList.get(position).getPublishedAt());
-        } catch (ParseException e) {
+            String dateInISO8601 = articleList.get(position).getPublishedAt();
+            date = ISO8601DateParser.parse(dateInISO8601);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -100,7 +103,9 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
-
+                Intent articleDetail = new Intent(context, NewsArticleDetails.class);
+                articleDetail.putExtra("webURL", articleList.get(position).getUrl());
+                context.startActivity(articleDetail);
             }
         });
     }

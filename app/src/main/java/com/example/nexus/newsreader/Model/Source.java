@@ -16,13 +16,13 @@ public class Source {
     private String language;
     private String country;
     private UrlsToLogos urlsToLogos;
-    private List<String> sortByAvailable;
+    private List<String> sortBysAvailable;
 
     public Source() {
 
     }
 
-    public Source(String id, String name, String description, String url, String category, String language, String country, UrlsToLogos urlsToLogos, List<String> sortByAvailable) {
+    public Source(String id, String name, String description, String url, String category, String language, String country, UrlsToLogos urlsToLogos, List<String> sortBysAvailable) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -31,7 +31,7 @@ public class Source {
         this.language = language;
         this.country = country;
         this.urlsToLogos = urlsToLogos;
-        this.sortByAvailable = sortByAvailable;
+        this.sortBysAvailable = sortBysAvailable;
     }
 
     public String getId() {
@@ -98,12 +98,12 @@ public class Source {
         this.urlsToLogos = urlsToLogos;
     }
 
-    public List<String> getSortByAvailable() {
-        return sortByAvailable;
+    public List<String> getSortBysAvailable() {
+        return sortBysAvailable;
     }
 
-    public void setSortByAvailable(List<String> sortByAvailable) {
-        this.sortByAvailable = sortByAvailable;
+    public void setSortBysAvailable(List<String> sortBysAvailable) {
+        this.sortBysAvailable = sortBysAvailable;
     }
 }
 

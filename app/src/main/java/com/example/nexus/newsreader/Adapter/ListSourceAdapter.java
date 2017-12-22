@@ -3,6 +3,7 @@ package com.example.nexus.newsreader.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,9 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
                 .enqueue(new Callback<IconBetterIdea>() {
                     @Override
                     public void onResponse(Call<IconBetterIdea> call, Response<IconBetterIdea> response) {
-                        if (response.body().getIcons().size() > 0) {
+                        if (response.body() != null
+                                && response.body().getIcons() != null
+                                && response.body().getIcons().size() > 0) {
                             Picasso.with(context)
                                     .load(response.body().getIcons().get(0).getUrl())
                                     .into(holder.sourceImage);
@@ -107,7 +110,6 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
             public void onClick(View view, int position, boolean isLongClick) {
                 Intent intent = new Intent(context, ListNews.class);
                 intent.putExtra("source", website.getSources().get(position).getId());
-                intent.putExtra("sortBy", website.getSources().get(position).getSortByAvailable().get(0));
                 context.startActivity(intent);
             }
         });

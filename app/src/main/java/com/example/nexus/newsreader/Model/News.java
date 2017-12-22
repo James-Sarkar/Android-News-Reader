@@ -12,8 +12,6 @@ public class News {
 
     private String source;
 
-    private String sortBy;
-
     private List<Article> articles;
 
     public String getStatus() {
@@ -30,14 +28,6 @@ public class News {
 
     public void setSource(String source) {
         this.source = source;
-    }
-
-    public String getSortBy() {
-        return sortBy;
-    }
-
-    public void setSortBy(String sortBy) {
-        this.sortBy = sortBy;
     }
 
     public List<Article> getArticles() {

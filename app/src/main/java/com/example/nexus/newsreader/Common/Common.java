@@ -23,12 +23,10 @@ public class Common {
         return IconBetterIdeaClient.getClient().create(IconBetterIdeaService.class);
     }
 
-    public static String getApiUrl(String source, String sortBy, String apiKey) {
+    public static String getApiUrl(String source, String apiKey) {
 
         StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v1/articles?source=");
         return apiUrl.append(source)
-                .append("&sortBy=")
-                .append(sortBy)
                 .append("&apiKey=")
                 .append(apiKey)
                 .toString();
