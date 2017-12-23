@@ -48,7 +48,6 @@ public class ListNews extends AppCompatActivity {
 
     RecyclerView.LayoutManager layoutManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +94,6 @@ public class ListNews extends AppCompatActivity {
     }
 
     private void loadNews(String source, boolean isRefreshed) {
-
         dialog.show();
         mNewsService.getNewestArticles(Common.getApiUrl(source, Common.API_KEY))
                 .enqueue(new Callback<News>() {

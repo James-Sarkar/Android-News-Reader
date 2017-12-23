@@ -22,7 +22,8 @@ public class Source {
 
     }
 
-    public Source(String id, String name, String description, String url, String category, String language, String country, UrlsToLogos urlsToLogos, List<String> sortBysAvailable) {
+    public Source(String id, String name, String description, String url, String category, String language,
+                  String country, UrlsToLogos urlsToLogos, List<String> sortBysAvailable) {
         this.id = id;
         this.name = name;
         this.description = description;

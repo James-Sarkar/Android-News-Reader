@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Website {
 
-    public String status;
+    private String status;
     private List<Source> sources;
 
     public Website() {

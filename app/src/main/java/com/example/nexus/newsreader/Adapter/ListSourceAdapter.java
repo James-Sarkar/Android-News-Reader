@@ -29,13 +29,13 @@ import retrofit2.Response;
 class ListSourceViewHolder extends RecyclerView.ViewHolder
         implements View.OnClickListener {
 
-    ItemClickListener itemClickListener;
+    private ItemClickListener itemClickListener;
 
     TextView sourceTitle;
 
     CircleImageView sourceImage;
 
-    public ListSourceViewHolder(View itemView) {
+    ListSourceViewHolder(View itemView) {
         super(itemView);
 
         sourceImage = (CircleImageView) itemView.findViewById(R.id.source_image);
@@ -44,7 +44,7 @@ class ListSourceViewHolder extends RecyclerView.ViewHolder
         itemView.setOnClickListener(this);
     }
 
-    public void setItemClickListener(ItemClickListener itemClickListener) {
+    void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
@@ -79,7 +79,6 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
 
     @Override
     public void onBindViewHolder(final ListSourceViewHolder holder, int position) {
-
         StringBuilder iconBetterAPI = new StringBuilder("https://icons.better-idea.org/allicons.json?url=");
         iconBetterAPI.append(website.getSources().get(position).getUrl());
 

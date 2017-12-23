@@ -64,11 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadWebsiteSource(boolean isRefreshed) {
-
         if (!isRefreshed) {
             String cache = Paper.book().read("cache");
             if (cache != null && !cache.isEmpty()) {
-                Website website = new Gson().fromJson(cache, Website.class); //convert cache from json to website object
+                Website website = new Gson().fromJson(cache, Website.class);
                 adapter = new ListSourceAdapter(getBaseContext(), website);
                 adapter.notifyDataSetChanged();
                 websiteList.setAdapter(adapter);
@@ -84,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
                         // Save to cache
                         Paper.book().write("cache", new Gson().toJson(response.body()));
-
                     }
 
                     @Override
@@ -109,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                     // Dismiss refresh progress
                     swipeRefreshLayout.setRefreshing(false);
                     dialog.dismiss();
-
                 }
 
                 @Override

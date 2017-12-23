@@ -29,7 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 class ListNewsViewHolder extends RecyclerView.ViewHolder
         implements View.OnClickListener {
 
-    ItemClickListener itemClickListener;
+    private ItemClickListener itemClickListener;
 
     TextView articleTitle;
 
@@ -37,7 +37,7 @@ class ListNewsViewHolder extends RecyclerView.ViewHolder
 
     CircleImageView articleImage;
 
-    public ListNewsViewHolder(View itemView) {
+    ListNewsViewHolder(View itemView) {
         super(itemView);
 
         articleTitle = (TextView) itemView.findViewById(R.id.article_title);
@@ -47,7 +47,7 @@ class ListNewsViewHolder extends RecyclerView.ViewHolder
         itemView.setOnClickListener(this);
     }
 
-    public void setItemClickListener(ItemClickListener itemClickListener) {
+    void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
@@ -77,7 +77,6 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
 
     @Override
     public void onBindViewHolder(ListNewsViewHolder holder, int position) {
-
         Picasso.with(context)
                 .load(articleList.get(position).getUrlToImage())
                 .into(holder.articleImage);
@@ -89,7 +88,6 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         }
 
         Date date = null;
-
         try {
             String dateInISO8601 = articleList.get(position).getPublishedAt();
             date = ISO8601DateParser.parse(dateInISO8601);
@@ -97,7 +95,9 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
             e.printStackTrace();
         }
 
-        holder.articleTime.setReferenceTime(date.getTime());
+        if (date != null) {
+            holder.articleTime.setReferenceTime(date.getTime());
+        }
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

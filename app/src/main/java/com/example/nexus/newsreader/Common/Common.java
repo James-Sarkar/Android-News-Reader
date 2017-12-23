@@ -24,7 +24,6 @@ public class Common {
     }
 
     public static String getApiUrl(String source, String apiKey) {
-
         StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v1/articles?source=");
         return apiUrl.append(source)
                 .append("&apiKey=")
