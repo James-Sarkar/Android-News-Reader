@@ -72,7 +72,9 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
     @Override
     public ListSourceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
         View itemView = inflater.inflate(R.layout.source_layout, parent, false);
+
         return new ListSourceViewHolder(itemView);
 
     }
@@ -86,9 +88,7 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
                 .enqueue(new Callback<IconBetterIdea>() {
                     @Override
                     public void onResponse(Call<IconBetterIdea> call, Response<IconBetterIdea> response) {
-                        if (response.body() != null
-                                && response.body().getIcons() != null
-                                && response.body().getIcons().size() > 0) {
+                        if (response.body() != null && response.body().getIcons() != null && response.body().getIcons().size() > 0) {
                             Picasso.with(context)
                                     .load(response.body().getIcons().get(0).getUrl())
                                     .into(holder.sourceImage);
@@ -108,6 +108,7 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
             public void onClick(View view, int position, boolean isLongClick) {
                 Intent intent = new Intent(context, ListNews.class);
                 intent.putExtra("source", website.getSources().get(position).getId());
+
                 context.startActivity(intent);
             }
         });

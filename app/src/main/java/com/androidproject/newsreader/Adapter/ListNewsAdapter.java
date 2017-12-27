@@ -71,7 +71,9 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
     @Override
     public ListNewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
         View itemView = inflater.inflate(R.layout.news_layout, parent, false);
+
         return new ListNewsViewHolder(itemView);
     }
 
@@ -88,6 +90,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         }
 
         Date date = null;
+
         try {
             String dateInISO8601 = articleList.get(position).getPublishedAt();
             date = ISO8601DateParser.parse(dateInISO8601);
@@ -104,6 +107,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
             public void onClick(View view, int position, boolean isLongClick) {
                 Intent articleDetail = new Intent(context, NewsArticleDetails.class);
                 articleDetail.putExtra("webURL", articleList.get(position).getUrl());
+
                 context.startActivity(articleDetail);
             }
         });

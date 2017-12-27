@@ -95,11 +95,13 @@ public class ListNews extends AppCompatActivity {
 
     private void loadNews(String source, boolean isRefreshed) {
         dialog.show();
+
         mNewsService.getNewestArticles(Common.getApiUrl(source, Common.API_KEY))
                 .enqueue(new Callback<News>() {
                     @Override
                     public void onResponse(Call<News> call, Response<News> response) {
                         dialog.dismiss();
+
                         Picasso.with(getBaseContext())
                                 .load(response.body().getArticles().get(0).getUrlToImage())
                                 .into(kenBurnsView);
@@ -111,8 +113,10 @@ public class ListNews extends AppCompatActivity {
                         // Load all articles
                         List<Article> remainingArticles = response.body().getArticles();
                         remainingArticles.remove(0);
+
                         listNewsAdapter = new ListNewsAdapter(remainingArticles, getBaseContext());
                         listNewsAdapter.notifyDataSetChanged();
+
                         listNews.setAdapter(listNewsAdapter);
                     }
 
