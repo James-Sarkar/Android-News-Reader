@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.androidproject.newsreader.Common.ISO8601DateParser;
 import com.androidproject.newsreader.Interface.ItemClickListener;
 import com.androidproject.newsreader.Model.Article;
-import com.androidproject.newsreader.NewsArticleDetails;
+import com.androidproject.newsreader.NewsArticleDetailsActivity;
 import com.androidproject.newsreader.R;
 import com.github.curioustechizen.ago.RelativeTimeTextView;
 import com.squareup.picasso.Picasso;
@@ -74,7 +74,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
-                Intent articleDetail = new Intent(context, NewsArticleDetails.class);
+                Intent articleDetail = new Intent(context, NewsArticleDetailsActivity.class);
                 articleDetail.putExtra("webURL", articleList.get(position).getUrl());
 
                 context.startActivity(articleDetail);

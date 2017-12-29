@@ -26,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListNews extends AppCompatActivity {
+public class ListNewsActivity extends AppCompatActivity {
 
     private KenBurnsView kenBurnsView;
 
@@ -69,7 +69,7 @@ public class ListNews extends AppCompatActivity {
         diagonalLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent articleDetail = new Intent(getBaseContext(), NewsArticleDetails.class);
+                Intent articleDetail = new Intent(getBaseContext(), NewsArticleDetailsActivity.class);
                 articleDetail.putExtra("webURL", webHotUrl);
                 startActivity(articleDetail);
             }

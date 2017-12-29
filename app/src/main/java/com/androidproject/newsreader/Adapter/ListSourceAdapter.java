@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.androidproject.newsreader.Common.Common;
 import com.androidproject.newsreader.Interface.IconBetterIdeaService;
 import com.androidproject.newsreader.Interface.ItemClickListener;
-import com.androidproject.newsreader.ListNews;
+import com.androidproject.newsreader.ListNewsActivity;
 import com.androidproject.newsreader.Model.IconBetterIdea;
 import com.androidproject.newsreader.Model.Website;
 import com.androidproject.newsreader.R;
@@ -78,7 +78,7 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
-                Intent intent = new Intent(context, ListNews.class);
+                Intent intent = new Intent(context, ListNewsActivity.class);
                 intent.putExtra("source", website.getSources().get(position).getId());
 
                 context.startActivity(intent);

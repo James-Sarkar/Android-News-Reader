@@ -9,7 +9,7 @@ import android.webkit.WebViewClient;
 
 import dmax.dialog.SpotsDialog;
 
-public class NewsArticleDetails extends AppCompatActivity {
+public class NewsArticleDetailsActivity extends AppCompatActivity {
 
     private WebView webView;
 
