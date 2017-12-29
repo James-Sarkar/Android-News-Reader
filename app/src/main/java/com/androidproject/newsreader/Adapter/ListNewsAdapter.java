@@ -26,37 +26,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by James Sarkar.
  */
 
-class ListNewsViewHolder extends RecyclerView.ViewHolder
-        implements View.OnClickListener {
-
-    private ItemClickListener itemClickListener;
-
-    TextView articleTitle;
-
-    RelativeTimeTextView articleTime;
-
-    CircleImageView articleImage;
-
-    ListNewsViewHolder(View itemView) {
-        super(itemView);
-
-        articleTitle = (TextView) itemView.findViewById(R.id.article_title);
-        articleTime = (RelativeTimeTextView) itemView.findViewById(R.id.article_time);
-        articleImage = (CircleImageView) itemView.findViewById(R.id.article_image);
-
-        itemView.setOnClickListener(this);
-    }
-
-    void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    @Override
-    public void onClick(View view) {
-        itemClickListener.onClick(view, getAdapterPosition(), false);
-    }
-}
-
 public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
 
     private List<Article> articleList;
@@ -116,5 +85,36 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
     @Override
     public int getItemCount() {
         return articleList.size();
+    }
+}
+
+class ListNewsViewHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener {
+
+    private ItemClickListener itemClickListener;
+
+    TextView articleTitle;
+
+    RelativeTimeTextView articleTime;
+
+    CircleImageView articleImage;
+
+    ListNewsViewHolder(View itemView) {
+        super(itemView);
+
+        articleTitle = (TextView) itemView.findViewById(R.id.article_title);
+        articleTime = (RelativeTimeTextView) itemView.findViewById(R.id.article_time);
+        articleImage = (CircleImageView) itemView.findViewById(R.id.article_image);
+
+        itemView.setOnClickListener(this);
+    }
+
+    void setItemClickListener(ItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        itemClickListener.onClick(view, getAdapterPosition(), false);
     }
 }

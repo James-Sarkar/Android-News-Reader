@@ -21,17 +21,17 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView websiteList;
+    private RecyclerView websiteList;
 
-    RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager;
 
-    NewsService mNewsService;
+    private NewsService mNewsService;
 
-    ListSourceAdapter adapter;
+    private ListSourceAdapter adapter;
 
-    AlertDialog dialog;
+    private AlertDialog dialog;
 
-    SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

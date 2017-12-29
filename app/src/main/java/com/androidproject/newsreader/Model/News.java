@@ -8,9 +8,7 @@ import java.util.List;
 
 public class News {
 
-    private String status;
-
-    private String source;
+    private String status, source;
 
     private List<Article> articles;
 

@@ -26,34 +26,6 @@ import retrofit2.Response;
  * Created by James Sarkar.
  */
 
-class ListSourceViewHolder extends RecyclerView.ViewHolder
-        implements View.OnClickListener {
-
-    private ItemClickListener itemClickListener;
-
-    TextView sourceTitle;
-
-    CircleImageView sourceImage;
-
-    ListSourceViewHolder(View itemView) {
-        super(itemView);
-
-        sourceImage = (CircleImageView) itemView.findViewById(R.id.source_image);
-        sourceTitle = (TextView) itemView.findViewById(R.id.source_name);
-
-        itemView.setOnClickListener(this);
-    }
-
-    void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    @Override
-    public void onClick(View view) {
-        itemClickListener.onClick(view, getAdapterPosition(), false);
-    }
-}
-
 public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder> {
 
     private Context context;
@@ -117,5 +89,33 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
     @Override
     public int getItemCount() {
         return website.getSources().size();
+    }
+}
+
+class ListSourceViewHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener {
+
+    private ItemClickListener itemClickListener;
+
+    TextView sourceTitle;
+
+    CircleImageView sourceImage;
+
+    ListSourceViewHolder(View itemView) {
+        super(itemView);
+
+        sourceImage = (CircleImageView) itemView.findViewById(R.id.source_image);
+        sourceTitle = (TextView) itemView.findViewById(R.id.source_name);
+
+        itemView.setOnClickListener(this);
+    }
+
+    void setItemClickListener(ItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        itemClickListener.onClick(view, getAdapterPosition(), false);
     }
 }

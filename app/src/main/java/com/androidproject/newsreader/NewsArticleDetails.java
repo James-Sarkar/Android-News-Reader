@@ -11,9 +11,9 @@ import dmax.dialog.SpotsDialog;
 
 public class NewsArticleDetails extends AppCompatActivity {
 
-    WebView webView;
+    private WebView webView;
 
-    AlertDialog dialog;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

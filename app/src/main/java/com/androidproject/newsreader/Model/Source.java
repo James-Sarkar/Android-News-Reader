@@ -8,14 +8,10 @@ import java.util.List;
 
 public class Source {
 
-    private String id;
-    private String name;
-    private String description;
-    private String url;
-    private String category;
-    private String language;
-    private String country;
+    private String id, name, description, url, category, language, country;
+
     private UrlsToLogos urlsToLogos;
+
     private List<String> sortBysAvailable;
 
     public Source() {
@@ -109,6 +105,7 @@ public class Source {
 }
 
 class UrlsToLogos {
+
     private String small, medium, large;
 
     public String getSmall() {

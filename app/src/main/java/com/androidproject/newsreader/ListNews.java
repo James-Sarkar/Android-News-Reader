@@ -28,25 +28,25 @@ import retrofit2.Response;
 
 public class ListNews extends AppCompatActivity {
 
-    KenBurnsView kenBurnsView;
+    private KenBurnsView kenBurnsView;
 
-    DiagonalLayout diagonalLayout;
+    private DiagonalLayout diagonalLayout;
 
-    AlertDialog dialog;
+    private AlertDialog dialog;
 
-    NewsService mNewsService;
+    private NewsService mNewsService;
 
-    TextView topAuthor, topTitle;
+    private TextView topAuthor, topTitle;
 
-    SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
-    String source = "", webHotUrl = "";
+    private String source = "", webHotUrl = "";
 
-    ListNewsAdapter listNewsAdapter;
+    private ListNewsAdapter listNewsAdapter;
 
-    RecyclerView listNews;
+    private RecyclerView listNews;
 
-    RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
